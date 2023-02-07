@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="../css/main.css" rel="stylesheet"/>
+        <link href="../resources/css/styles.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+        <script type="text/javascript">
+		$(document).ready(function(){
+			$('input:text, input:password').attr("size", "30");
+
+		});
+   
+	</script>
+        
+	
+	<style>
+		.labelColumn {
+			width: 100px;
+		}
+		.fieldColumn {
+			width: 200px;
+		}
+                body{
+                    background-image: url("../images/5.jpg");
+                   
+                }
+                h1#bro{
+                    font-size: 40px  ;
+                    font-family:  monospace;
+                    font-style:  oblique;
+                    color: yellow;
+                }
+                  div#exi{
+                    width: 1300px;
+                    
+                    background-color: #F8F8F8;
+                    align:center;
+                    margin: 0 auto;
+                }
+	</style>
+    </h:head>
+    <h:body>
+           <div class="text-center" align="center">
+            <br/>
+            <image    src="../images/mytaxi-2.png"  width="120" height="100" alt="mytaxi-2"/>
+            
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#33475b;" id="navbar"  >
+ <a class="navbar-brand " href="index.xhtml">
+ <image    src="../images/mytaxi-2.png" width="70" height="50" alt="mytaxi-2"/>
+ </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topnavbar" >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+ 
+            <div class="collapse navbar-collapse " id="topnavbar" >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link"  href="private.xhtml">My private cab</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link"  href="booking.xhtml">Book appointment</a>
+        </li>
+         <li class="nav-item ">
+          <a class="nav-link scrollto" href="viewBookings.xhtml">View bookings</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link scrollto"  href="deletebooking.xhtml">cancel bookings</a>
+        </li>
+
+      </ul>
+    </div>	 
+ </nav>
+
+  <div id="mine" class="carousel slide"  data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#mine" data-slide-to="0" class="active"></li>
+    <li data-target="#mine" data-slide-to="1"></li>
+    <li data-target="#mine" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img class="d-block w-100"  src="../images/cabs.jpg" alt="First slide" />
+        <div class="carousel-caption d-none d-md-block">
+            <h1  id="bro">you can book your cab down here</h1>
+        <h:form>
+        <p:commandButton action="booking"  value="book now" />
+         </h:form>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="../images/11.jpg" alt="Second slide" />
+      <div class="carousel-caption d-none d-md-block">
+          <h1 id="bro">Book private car</h1>
+        <h:form>
+        <p:commandButton action="#{pcl.benz}"  value="book now Mercedes-Benz" />
+         </h:form>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="../images/1111.jpg" alt="Third slide" />
+      <div class="carousel-caption d-none d-md-block">
+          <h1 id="bro">View other private cab</h1>
+        <h:form>
+        <p:commandButton action="private"  value="View all" />
+         </h:form>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#mine" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#mine" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+        
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>                    
+</h:body>
+</html>
+

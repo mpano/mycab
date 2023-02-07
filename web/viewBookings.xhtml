@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>booking cab</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="../css/main.css" rel="stylesheet"/>
+        <link href="../resources/css/styles.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+        <script type="text/javascript">
+		$(document).ready(function(){
+			$('input:text, input:password').attr("size", "30");
+
+		});
+   
+	</script>
+         <script>
+            function viewprivate(){
+                var req = new XMLHttpRequest();
+                req.open("GET", "book.xhtml", false);
+                req.send(null);
+                
+                if(req.status === 200){
+                  
+                    document.getElementById("mybro").innerHTML = req.responseText;
+                }else {
+                    document.getElementById("mybro").innerHTML ="Error ";
+                }
+            }
+        </script>
+        
+	
+	<style>
+		.labelColumn {
+			width: 100px;
+		}
+		.fieldColumn {
+			width: 200px;
+		}
+                body{
+                    background-image: url("../images/5.jpg");
+                   
+                }
+                div#exi{
+                    width: 1300px;
+                    background-color: #F8F8F8;
+                    align:center;
+                    margin: 0 auto;
+                }
+	</style>
+    </h:head>
+    <h:body>
+           <div class="text-center" align="center">
+            <br/>
+            <image    src="../images/mytaxi-2.png"  width="120" height="100" alt="mytaxi-2"/>
+            
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#33475b;" id="navbar"  >
+ <a class="navbar-brand " href="index.xhtml">
+ <image    src="../images/mytaxi-2.png" width="70" height="50" alt="mytaxi-2"/>
+ </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topnavbar" >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+ 
+ <div class="collapse navbar-collapse " id="topnavbar">
+      <ul class="navbar-nav">
+          <li>
+              
+          </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="private.xhtml">My private cab</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link"  href="booking.xhtml">Book appointment</a>
+        </li>
+         <li class="nav-item ">
+          <a class="nav-link scrollto" href="viewBookings.xhtml">View bookings</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link scrollto"  href="deletebooking.xhtml">cancel bookings</a>
+        </li>
+
+      </ul>
+    </div>	 
+ </nav>
+
+       
+
+                        
+     <br/>
+        
+        <div class="container-fluid d-flex justify-content-between">
+  <div id="exi">
+     <br/>
+     <h:form id="heyyou">
+       &nbsp;&nbsp;&nbsp;&nbsp;
+     <p:commandButton  onclick="viewprivate();" value="add new booking"  styleClass="ui-button-secondary" />     
+     <div id="mybro"></div>
+     <h1 align="center">List of bookings</h1>
+     
+     <p:growl id="message" />
+     <p:messages  />
+     <div >
+        <p:panel id="blu"   toggleable="true"   header="booking table"   >
+            <p:dataTable value="#{cl.allBookings}" var="c" 
+                      resizableColumns="true"     reflow="true"  
+             paginator="true" rows="5" rowSelectMode="add" paginatorPosition="bottom"   >
+            <p:column>
+                <f:facet name="header">First Name</f:facet>
+                #{c.fname}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Last Name</f:facet>
+                
+                #{c.lname}
+            </p:column>
+             <p:column>
+                <f:facet name="header">Pickup Place</f:facet>
+               
+                #{c.phone}
+            </p:column>    
+              <p:column>
+                <f:facet name="header">Email</f:facet>
+                
+                #{c.email}
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">Date</f:facet>
+                #{c.date}
+            </p:column>
+           
+             <p:column>
+                <f:facet name="header">Pickup Zone</f:facet>
+               
+                #{c.pickuptime}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Drop Zone</f:facet>
+               
+                #{c.dropofftime}
+            </p:column>
+                
+                
+        </p:dataTable>
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" />
+        </p:confirmDialog> 
+        </p:panel>
+     </div>
+     
+      <br/>
+      <p:panel id="lu"  toggleable="true" header="Private booking table"   >
+            <p:dataTable   value="#{pcl.allBookings}" var="c" 
+                      resizableColumns="true"     reflow="true"  
+             paginator="true" rows="5" rowSelectMode="add" paginatorPosition="bottom"   >
+            <p:column>
+                <f:facet name="header">First Name</f:facet>
+                #{c.fname}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Last Name</f:facet>
+                
+                #{c.lname}
+            </p:column>
+             <p:column>
+                <f:facet name="header">Private Car</f:facet>
+                
+                #{c.car}
+            </p:column>
+             <p:column>
+                <f:facet name="header">Pickup Place</f:facet>
+               
+                #{c.phone}
+            </p:column>    
+              <p:column>
+                <f:facet name="header">Email</f:facet>
+                
+                #{c.email}
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">Date</f:facet>
+                #{c.date}
+            </p:column>
+           
+             <p:column>
+                <f:facet name="header">Pickup Zone</f:facet>
+               
+                #{c.pickuptime}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Drop Zone</f:facet>
+               
+                #{c.dropofftime}
+            </p:column>
+                
+                
+        </p:dataTable>
+        </p:panel>
+     
+        </h:form>
+      
+
+  </div>
+  </div>
+     <br/><br/><br/><br/><br/><br/>  
+     <div id="mybro"></div>
+    </h:body>
+    
+</html>
+

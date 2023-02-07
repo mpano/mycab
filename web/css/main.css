@@ -1,0 +1,69 @@
+    
+div.text-center {
+    height: 120px;
+    width: 100%;
+    background-color: #240d4d;        
+  }
+  ul.ui.mymen{
+    height: 120px;
+    width: 100%;
+          
+  }
+ div.pic{
+   height: 30px;
+   width: 30%;
+   }
+           
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+  
+}
+
+a {
+  color: #ef6603;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fc8129;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: "Raleway", sans-serif;
+}
+
+.navbar {
+  padding: 0;
+}
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items:   flex-start;
+ 
+}
+.navbar li {
+  position:  static;
+}
+.navbar a, .navbar a:focus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 15px 7px 15px;
+  margin-left: 30px;
+  font-size: 18px;
+  color: #fff;
+  white-space:  normal;
+  transition: 1s;
+  border-radius: 50px;
+}
+
+.navbar a:hover, .navbar , .navbar li:hover > a {
+  background: #de9e09;
+  
+}
+
+

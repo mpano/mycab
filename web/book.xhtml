@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>booking cab</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+
+    </h:head>
+    <h:body>
+   
+  <h:form id="registrationForm"  >
+    
+                <p:panel id="panel" header="Book Now" style="width: 450px;"  >
+		
+                <p:growl id="message"/>
+		    <h:panelGrid columns="2"   >
+                        <p:outputLabel for="firstName" value="FirstName"/>
+                        <p:inputText id="firstName" value="#{cl.client.fname}" required="true" label="FirstName">
+                            <f:validateLength maximum="20" minimum="5" /> 
+                        </p:inputText>
+			<p:outputLabel  value=""/>
+                       <p:outputLabel value=""/>
+                       <p:outputLabel for="lastName" value="LastName"/>
+                       <p:inputText id="lastName" value="#{cl.client.lname}" label="Lastname" required="true"/>
+                        <p:outputLabel  value=""/>
+                       <p:outputLabel value=""/>
+                        <p:outputLabel for="phone" value="Phone Number"/>
+                        <p:inputText id="phone" value="#{cl.client.phone}" required="true" 
+                                 validatorMessage="the phone number must start with +250 + other 9 digits eg: +250787920399"  >
+                         <f:validateRegex pattern="\+250\d{9}" />
+                        </p:inputText>
+			<p:outputLabel  value=""/>
+                       <p:outputLabel value=""/>			
+                       <p:outputLabel for="email" value="Email"/>
+                       <p:inputText id="email" value="#{cl.client.email}" required="true" label="Email"/>
+                      <p:outputLabel  value=""/>
+                       <p:outputLabel value=""/>
+                       <p:outputLabel for="range" value="Date"/>
+                       <p:datePicker  id="range" label="date"  showTime="true" timeInput="true"   value="#{cl.client.date}"  showButtonBar="true" required="true">
+                           <f:validator validatorId="bookingdate" /> 
+                           <f:convertDateTime pattern="MM/dd/yyyy HH:mm"/>
+                       </p:datePicker>    
+                       <p:outputLabel  value=""/>
+                       <p:outputLabel value=""/>
+                       <p:outputLabel for="pickup" value="pickup zone"/>
+                       <p:inputText id="pickup" value="#{cl.client.pickuptime}" label="pickup place" required="true"/>
+                        <p:outputLabel  value=""/>
+                       <p:outputLabel value=""/>
+                        <p:outputLabel for="drop" value="Drop off zone"/>
+                        <p:inputText id="drop" value="#{cl.client.dropofftime}" label="dropoff Zone" required="true"/>
+                       
+               
+		         <p:outputLabel  value=""/>
+                       <p:outputLabel value=""/><p:outputLabel  value=""/>
+                       <p:outputLabel value=""/>				
+			<p:outputLabel value=""/>
+        <h:panelGrid columns="2"  >
+             <p:commandButton  value="Confirm" resetValues="true" action="#{cl.save()}"  update="message"  styleClass="ui=button-info" icon="pi pi-check">
+        <p:confirm header="Submit" message="are you sure you want to submit your booking?" icon="pi pi-exclamation-triangle"/>
+        </p:commandButton>   
+            <p:button value="cancel" outcome="viewBookings.xhtml" styleClass="ui-button-secondary" icon="pi pi-times">
+            </p:button>
+          
+        </h:panelGrid>	
+        </h:panelGrid>
+	</p:panel>
+            
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" responsive="true" width="350">
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-flat"/>
+            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" />
+        </p:confirmDialog>  
+
+	</h:form>
+  
+
+    </h:body>
+</html>
+

@@ -1,0 +1,33 @@
+
+div.ex
+{
+	width: 900px;
+	margin: 0 auto;
+	background-color: #F8F8F8;
+        text-align:center;
+        align:center;
+        
+}
+
+.mybo{
+    height: 50px;
+}
+
+form {
+    display: inline-block;
+}
+.ui-widget {
+    font-size: 12px !important;
+}
+
+.wrapper
+{
+	background-color: #FFF;
+}
+.header {
+    height:50px;
+    background:#F0F0F0;
+    border:1px solid #CCC;
+    margin:2px auto;
+    text-align:center;
+}
